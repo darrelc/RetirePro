@@ -22,6 +22,7 @@ export interface IncomeStream {
   endAge: number;
   growthRate: number; // Annual COLA %
   isTaxable: boolean;
+  color: string;
 }
 
 export interface FinancialSettings {
@@ -49,4 +50,19 @@ export interface SimulationResult {
   depletionAge: number | null;
   finalBalance: number;
   data: YearData[];
+}
+
+export interface Scenario {
+  id: string;
+  name: string;
+  assets: Asset[];
+  incomeStreams: IncomeStream[];
+  settings: FinancialSettings;
+  createdAt: number;
+}
+
+export interface RetireFlowFile {
+  version: number;
+  scenarios: Scenario[];
+  activeScenarioId: string;
 }
